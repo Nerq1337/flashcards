@@ -1,0 +1,57 @@
+.sets-panel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+
+	&__buttons {
+		display: flex;
+		gap: 8px;
+	}
+
+	&__button {
+		font-size: 18px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 14px;
+		gap: 10px;
+
+		@media (min-width: 525px) {
+			width: 120px;
+			height: 40px;
+
+			&_import:after {
+				content: 'import';
+			}
+
+			&_share:after {
+				content: 'share';
+			}
+		}
+
+		svg {
+			margin: 0 -4px;
+		}
+	}
+
+	&__title {
+		position: relative;
+		display: inline-block;
+
+		@media (min-width: 370px) {
+			&:before {
+				position: absolute;
+				z-index: -1;
+				bottom: -1px;
+				left: -8px;
+				width: calc(100% - 8px);
+				height: 13px;
+				content: '';
+				background: linear-gradient(90.7deg, rgb(255, 253, 218) 1.9%, rgb(246, 210, 255) 39.3%, rgb(152, 222, 254) 64.7%, rgb(251, 255, 210) 100.8%);
+			}
+		}
+	}
+}

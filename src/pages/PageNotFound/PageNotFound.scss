@@ -1,0 +1,48 @@
+.error-page {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: -20px;
+	animation: show-size .5s;
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		animation: shake .4s;
+		animation-delay: .3s;
+	}
+
+	&__404 {
+		position: relative;
+		right: 2px;
+		font-size: 160px;
+		font-weight: 300;
+		color: #fb5656;
+
+		//background: linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113));
+		//-webkit-background-clip: text;
+		//-webkit-text-fill-color: transparent;
+	}
+
+	&__title {
+		font-weight: 300;
+		font-size: 32px;
+		color: #202020;
+		margin-top: 20px;
+		letter-spacing: .04em;
+	}
+
+	&__text {
+		margin-top: 40px;
+		line-height: 140%;
+		font-size: 18px;
+		color: #7d7d7d;
+		max-width: 800px;
+		text-align: center;
+	}
+
+}

@@ -1,0 +1,30 @@
+.modal-test {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 300px;
+	min-height: 300px;
+	gap: 20px;
+
+	@media (max-width: 425px) {
+		width: 78vw;
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		margin-top: 14px;
+		gap: 6px;
+	}
+
+	&__buttons-row {
+		display: flex;
+		gap: 6px;
+	}
+
+	&__icons {
+		font-size: 26px;
+		font-weight: 600;
+	}
+}

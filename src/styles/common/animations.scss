@@ -1,0 +1,116 @@
+@keyframes show-down {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		transform: translateY(-10px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes show-down-faster {
+	0% {
+		opacity: 0;
+	}
+	10% {
+		transform: translateY(-10px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes show-opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes show-size {
+	0% {
+		opacity: 0;
+	}
+	10% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes shake {
+	0% {
+		border-color: #f04f4f;
+		transform: rotate(0deg);
+	}
+	25% {
+		border-color: #f04f4f;
+		transform: rotate(-1deg);
+	}
+	50% {
+		transform: rotate(1deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+/* Static classes */
+.shake-anim {
+	animation: shake .6s;
+}
+
+/* CSS Transitions */
+.left-to-right-enter {
+	transform: translateX(-20px);
+	opacity: 0;
+
+	&-active {
+		transition: opacity .4s, transform .4s;
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.left-to-right-exit {
+	opacity: 1;
+
+	&-active {
+		transition: opacity .35s;
+		opacity: 0;
+	}
+}
+
+.slide-down-enter {
+	transform: translateY(20px);
+	opacity: 0;
+
+	&-active {
+		transition: opacity .4s, transform .4s;
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.slide-down-exit {
+	transform: translateY(0);
+	opacity: 1;
+
+	&-active {
+		transition: opacity .3s, transform .3s;
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+}
+

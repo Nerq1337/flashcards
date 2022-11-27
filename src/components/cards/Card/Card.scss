@@ -1,0 +1,84 @@
+.card {
+	width: 240px;
+	height: 300px;
+	cursor: pointer;
+	perspective: 1000px;
+	list-style-type: none;
+
+	@media (max-width: 425px) {
+		width: 100%;
+		height: 100vw;
+	}
+
+	&__inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.65s;
+		text-align: center;
+		transform-style: preserve-3d;
+
+		&.flip-right {
+			transform: rotateY(180deg)
+		}
+
+		&.flip-left {
+			transform: rotateY(-180deg)
+		}
+
+		> * {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			border-radius: 16px;
+			backface-visibility: hidden;
+		}
+	}
+
+	&__front {
+		background-color: white;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	}
+
+	&__back {
+		transform: rotateY(180deg);
+		color: white;
+		background: linear-gradient(-225deg, #f4539c 0%, #7c62d9 48%, #72ccfe 100%);
+	}
+
+	&__title {
+		max-width: 200px;
+		word-break: normal;
+	}
+
+	&__description {
+		font-size: 18px;
+		line-height: 125%;
+		margin-top: 4px;
+		color: #55555a;
+
+		&_back {
+			color: #c4fff4;
+		}
+	}
+
+	&__buttons {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		display: flex;
+		gap: 6px;
+
+		button:first-child {
+			animation: show-down .5s;
+		}
+
+		button:last-child {
+			animation: show-down .3s;
+		}
+	}
+}

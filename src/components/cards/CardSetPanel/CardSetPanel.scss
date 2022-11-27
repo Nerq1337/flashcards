@@ -1,0 +1,48 @@
+.set-panel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
+
+	&__buttons {
+		gap: 10px;
+		display: flex;
+	}
+
+	&__left-side {
+		display: flex;
+		align-items: center;
+
+		button {
+			animation: show-opacity .5s;
+		}
+	}
+
+	&__label {
+		margin-left: 22px;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		transition: transform .3s;
+		border-radius: 14px;
+
+		&:hover {
+			transform: translateX(-3px);
+
+			svg {
+				transform: translateX(-1px);
+			}
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		transition: transform .3s;
+	}
+}

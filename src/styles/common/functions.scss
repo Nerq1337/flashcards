@@ -1,0 +1,3 @@
+@mixin gradient-for-animation($color1, $color2, $color3, $color4) {
+	background: linear-gradient(90deg, $color1, $color2 17%, $color3 34%, $color4 51%, $color1 68%, $color2 85%, $color4);
+}

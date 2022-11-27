@@ -1,0 +1,41 @@
+.progress-bar {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	height: 6px;
+	margin-bottom: 15px;
+	gap: 4px;
+	opacity: 0;
+	transition: opacity .3s;
+
+	&_show {
+		opacity: 1;
+	}
+
+	&__line {
+		display: block;
+		width: 0;
+		height: 100%;
+		transition: width 1s;
+		animation: rainbow-animation 2s linear infinite;
+		border-radius: 10px;
+		background-size: 300% 100%;
+
+		&_1 {
+			background-image: linear-gradient(90deg, #47ff3d, #4aea7d 17%, #84ff4b 34%, #0eff01 51%, #47ff3d 68%, #4aea7d 85%, #84ff4b);
+		}
+
+		&_2 {
+			background-image: linear-gradient(90deg, #f02352, #f24e75 17%, #e91a5f 34%, #ff6691 51%, #f02352 68%, #f24e75 85%, #e91a5f);
+		}
+	}
+}
+
+@keyframes rainbow-animation {
+	0% {
+		background-position: 100%
+	}
+	100% {
+		background-position: 0
+	}
+}

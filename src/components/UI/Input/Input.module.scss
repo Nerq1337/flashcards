@@ -1,0 +1,20 @@
+.wrapper {
+
+}
+
+.input {
+	width: 100%;
+	padding: 4px 7px 7px;
+	font-size: 18px;
+	border-radius: 8px;
+	border: 2px solid #ccc;
+	transition: border .3s;
+
+	&:focus {
+		border: 2px solid #4f5ff0;
+	}
+}
+
+.label {
+	margin-bottom: 4px;
+}

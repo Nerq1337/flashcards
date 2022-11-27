@@ -1,0 +1,29 @@
+.my-error {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: -20px;
+	animation: show-size .5s;
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 40px;
+		animation: shake .4s;
+		animation-delay: .3s;
+	}
+
+	&__title {
+		font-weight: 400;
+		font-size: 34px;
+	}
+
+	&__label {
+		color: #7d7d7d;
+		font-size: 20px;
+	}
+}

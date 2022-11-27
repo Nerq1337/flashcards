@@ -1,0 +1,102 @@
+.appButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	transition: background-position .4s;
+	text-transform: capitalize;
+	border-radius: 8px;
+	gap: 5px;
+	font-size: 18px;
+	background-size: 200% auto;
+
+	&:hover {
+		background-position: right center;
+	}
+}
+
+/* Colors ⬇️ */
+.appButton {
+
+	&_white {
+		font-weight: 600;
+		padding: 8px 10px;
+		color: #333;
+		background-color: #f0f0f0;
+	}
+
+	&_gradient-violet {
+		color: white;
+		background-image: linear-gradient(109.6deg, rgb(44, 44, 241) 11.2%, rgb(144, 6, 161) 53.7%, rgb(38, 217, 255) 100.2%);
+	}
+
+	&_gradient-orange {
+		font-weight: 600;
+		color: #000;
+		background-image: linear-gradient(45deg, rgb(251, 221, 19) 0%, rgb(255, 153, 1) 51%, rgb(251, 221, 19) 100%);
+	}
+
+	&_gradient-green-blue {
+		font-weight: 600;
+		color: #000;
+		background-image: linear-gradient(45deg, rgb(167, 247, 125), rgb(101, 222, 238), rgb(167, 247, 125));
+	}
+
+	&_gradient-rainbow {
+		font-weight: 500;
+		transition: background-position .4s, color .3s;
+		color: #000;
+		background-image: linear-gradient(96.2deg, rgb(255, 230, 112) 10.4%, rgb(255, 100, 100) 43.8%, rgb(0, 93, 219) 105.8%);
+
+		&:hover {
+			font-weight: 400;
+			color: #fff;
+		}
+	}
+
+	&_gradient-red {
+		color: #fff;
+		background-image: linear-gradient(45deg, rgb(255, 149, 149), rgb(255, 37, 37), rgb(255, 149, 149));
+	}
+
+	&_gradient-green {
+		color: #fff;
+		background-image: linear-gradient(45deg, rgb(177, 255, 149), rgb(65, 216, 31), rgb(177, 255, 149));
+	}
+
+	&_gradient-light-red {
+		color: #fff;
+		background-image: linear-gradient(65deg, #ff9191, #f66, #ff9191)
+	}
+}
+
+/* Sizes ⬇️ */
+.appButton {
+
+	&_small {
+		width: 80px;
+	}
+
+	&_medium {
+		min-width: 110px;
+	}
+
+	&_icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		transition: background-position .4s, transform .3s cubic-bezier(1, 0, .43, 2);
+		border-radius: 14px;
+
+		svg {
+			transition: transform .3s;
+		}
+
+		&:hover {
+			transform: translateY(3px);
+		}
+	}
+}

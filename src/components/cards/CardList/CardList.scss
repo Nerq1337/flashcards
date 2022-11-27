@@ -1,0 +1,14 @@
+.card-list {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 24px;
+	gap: 30px;
+}
+
+.list-empty {
+	margin-top: 20px;
+	color: #626262;
+	animation: show-down .8s;
+	position: fixed;
+}
