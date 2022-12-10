@@ -78,10 +78,10 @@ const CardProvider: FC<CardsProviderProps> = ({ children }) => {
 		localStorage.setItem(LocalStorage.CARDS_SETS, JSON.stringify(newSets));
 	};
 
-	const addCard = (setID: ICardSet['id'], card: ICard) => {
+	const addCard = (setID: ICardSet['id'], ...card: ICard[]) => {
 		const newSets = cardSets.map(cardSet =>
 			cardSet.id === setID
-				? { ...cardSet, cards: [card, ...cardSet.cards] }
+				? { ...cardSet, cards: [...card, ...cardSet.cards] }
 				: cardSet,
 		);
 

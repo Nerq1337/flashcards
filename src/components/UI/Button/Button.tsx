@@ -11,6 +11,8 @@ type ButtonColors = 'gradient-violet'
 	| 'gradient-red'
 	| 'white'
 	| 'gradient-light-red'
+	| 'gradient-light-blue'
+	| 'gradient-light-green'
 
 type ButtonSizes = 'small'
 	| 'medium'

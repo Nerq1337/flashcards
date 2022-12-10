@@ -1,13 +1,15 @@
 import { FC } from 'react';
 
+import { ICard } from '../../../types/card';
+
 import Button from '../../UI/Button/Button';
 
 import useCard from '../../../hooks/useCard';
 import useModal from '../../../hooks/useModal';
 import { useNavigate } from 'react-router-dom';
 
-import { GrAdd } from 'react-icons/gr';
 import { RiArrowGoBackLine } from 'react-icons/ri';
+import { BiImport, BiAddToQueue } from 'react-icons/bi';
 
 import './CardSetPanel.scss';
 
@@ -19,12 +21,71 @@ interface FlashcardSetPanelProps {
 const CardSetPanel: FC<FlashcardSetPanelProps> = ({ label }) => {
 	const navigate = useNavigate();
 
-	const { setIsCardsEditing, cancelCardsEdit, startCardsEdit, isCardsEditing, currentCardSetID } = useCard();
-	const { modalFlashcard, modalTest } = useModal();
+	const {
+		addCard, currentCardSetID,
+		setIsCardsEditing, cancelCardsEdit, startCardsEdit, isCardsEditing,
+	} = useCard();
+	const { modalFlashcard, modalTest, modalAlert } = useModal();
 
 	const buttonAdd = () => {
 		modalFlashcard.setCardSetID(currentCardSetID);
 		modalFlashcard.setVisible(true);
+	};
+
+	const buttonImport = async () => {
+		let text = ''
+
+		if (!navigator.clipboard) {
+			return;
+		}
+
+		await navigator.clipboard.readText()
+			.then(data => {
+				text = data;
+			});
+
+		try {
+			text = text
+				.trim()
+				.replaceAll('\t', '')
+				.replaceAll(' – ', '-');
+
+			const pairs = text.split('\r\n');
+
+			const cards: ICard[] = pairs.map((pair, index) => {
+				const [frontTitle, backTitle] = pair.split('-');
+
+				if (!frontTitle || !backTitle) {
+					throw new Error();
+				}
+
+				return {
+					id: Date.now() + index,
+					front: {
+						title: frontTitle,
+						description: '',
+					},
+					back: {
+						title: backTitle,
+						description: '',
+					},
+				};
+			});
+
+			modalAlert.show({
+				title: 'Success',
+				icon: 'success',
+				text: 'The cards were imported!'
+			})
+
+			addCard(currentCardSetID, ...cards);
+		} catch (err) {
+			modalAlert.show({
+				title: 'Invalid format!',
+				icon: 'error',
+				text: 'Example: "front-back"'
+			})
+		}
 	};
 
 	const back = () => {
@@ -42,13 +103,20 @@ const CardSetPanel: FC<FlashcardSetPanelProps> = ({ label }) => {
 				<h1 className={'set-panel__label'}>{label}</h1>
 
 				{isCardsEditing &&
-					<Button
-						style={{ marginLeft: 12 }}
-						Size='icon' Color='gradient-green-blue'
-						onClick={buttonAdd}
-					>
-						<GrAdd size={22}/>
-					</Button>
+					<div className="set-panel__side-buttons">
+						<Button
+							Size="icon" Color="gradient-light-blue"
+							onClick={buttonAdd}
+						>
+							<BiAddToQueue size={22}/>
+						</Button>
+						<Button
+							Size="icon" Color="gradient-light-green"
+							onClick={buttonImport}
+						>
+							<BiImport size={22}/>
+						</Button>
+					</div>
 				}
 			</div>
 
@@ -57,7 +125,7 @@ const CardSetPanel: FC<FlashcardSetPanelProps> = ({ label }) => {
 					<Button onClick={cancelCardsEdit}>cancel</Button>
 					<Button
 						onClick={() => setIsCardsEditing(false)}
-						Color='gradient-green-blue'
+						Color="gradient-green-blue"
 					>
 						save
 					</Button>
@@ -68,7 +136,7 @@ const CardSetPanel: FC<FlashcardSetPanelProps> = ({ label }) => {
 					</Button>
 					<Button
 						onClick={() => modalTest.setVisible(true)}
-						Color='gradient-rainbow'
+						Color="gradient-rainbow"
 					>
 						test
 					</Button>

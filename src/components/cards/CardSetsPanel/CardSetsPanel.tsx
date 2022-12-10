@@ -31,7 +31,7 @@ const CardSetsPanel: FC = () => {
 				() => {
 					modalAlert.show({
 						title: 'Success',
-						text: 'The sets is copied to the clipboard!',
+						text: 'The card sets are copied to the clipboard!',
 						icon: 'success',
 					});
 				},
@@ -39,14 +39,13 @@ const CardSetsPanel: FC = () => {
 					modalAlert.show({
 						title: 'Error',
 						text: reason,
-						icon: 'success',
+						icon: 'error',
 					});
 				},
 			);
 	};
 
 	const importSets = () => {
-
 		navigator.clipboard.readText()
 			.then((text) => {
 				try {
@@ -66,7 +65,7 @@ const CardSetsPanel: FC = () => {
 
 				modalAlert.show({
 					title: 'Success',
-					text: 'The config is set!',
+					text: 'The card sets were imported!',
 					icon: 'success',
 				});
 

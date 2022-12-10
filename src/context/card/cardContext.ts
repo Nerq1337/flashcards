@@ -14,7 +14,7 @@ export interface ICardContext {
 	removeCardSet: (id: ICardSet['id'], isInModal?: boolean) => boolean;
 	renameCardSet: (id: ICardSet['id'], name: ICardSet['name']) => void;
 
-	addCard: (setID: ICardSet['id'], card: ICard) => void;
+	addCard: (setID: ICardSet['id'], ...card: ICard[]) => void;
 	removeCard: (setID: ICardSet['id'], cardID: ICard['id']) => void;
 	editCard: (setID: ICardSet['id'], newCard: ICard) => void;
 
