@@ -53,7 +53,7 @@ const CardSetPanel: FC<FlashcardSetPanelProps> = ({ label }) => {
 			const pairs = text.split('\r\n');
 
 			const cards: ICard[] = pairs.map((pair, index) => {
-				const [frontTitle, backTitle] = pair.split('-');
+				const [backTitle, frontTitle] = pair.split('-');
 
 				if (!frontTitle || !backTitle) {
 					throw new Error();
